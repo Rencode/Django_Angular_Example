@@ -1,0 +1,30 @@
+<!doctype html>
+<html xmlns:ng="http://angularjs.org">
+ <!--<script src="http://code.angularjs.org/angular-0.9.19.min.js" ng:autobind></script>-->
+ <script src="http://docs-next.angularjs.org/angular-0.10.1.min.js" ng:autobind></script>
+<body>
+<script>
+function FetchCntl($xhr) {
+      var self = this;
+   
+      this.countries = ['Spain','France','England']
+      this.cities = [];
+      this.fetch = function() {
+	$xhr('POST', 'ajax/update_cities', 'country='+self.country, function(code, response) {
+          self.cities = response;
+        });
+      };
+      
+    }
+    FetchCntl.$inject = ['$xhr'];
+</script>
+<div ng:controller="FetchCntl">
+<select name="country" id="country" ng:change="fetch()" ng:options="c for c in countries">
+	<option value="">Country</option>
+</select>
+<select name="city" id="city" ng:options="ci for ci in cities">
+	<option value="">City</option>
+</select>
+
+</div>
+</body>
