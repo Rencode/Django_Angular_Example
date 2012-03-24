@@ -2,6 +2,7 @@
 <html xmlns:ng="http://angularjs.org">
  <!--<script src="http://code.angularjs.org/angular-0.9.19.min.js" ng:autobind></script>-->
  <script src="http://docs-next.angularjs.org/angular-0.10.1.min.js" ng:autobind></script>
+ <script src="{{STATIC_URL}}/js/angular_template_change.js"></script>
 <body>
 <script>
 function FetchCntl($xhr) {
@@ -25,6 +26,6 @@ function FetchCntl($xhr) {
 <select name="city" id="city" ng:options="ci for ci in cities">
 	<option value="">City</option>
 </select>
-
+((cities))
 </div>
 </body>
